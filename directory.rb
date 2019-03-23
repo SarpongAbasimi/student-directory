@@ -1,25 +1,26 @@
-# first we print the list of students
+# let's put all students into and array 
 
-puts 'The students of Directory Academy'
-puts '____________'
-puts 'Dr. Hannibal Lecter'
-puts 'Darth Vader'
-puts 'Nurse Ratched'
-puts 'Michael Corleone'
-puts 'Alex DeLarge'
-puts 'The wicked Witch of the West'
-puts 'Terminator'
-puts 'Freddu Krueger'
-puts 'The Joker'
-puts 'Joffrey Baratheon'
-puts 'Norman Bates'
+students = [
+  "Dr. Hannibal Lecter",
+  "Darth Vader",
+  "Nurse Ratched",
+  "Michael Corleone",
+  "Alex DeLarge",
+  "The wicked Witch of the West",
+  "Terminator",
+  "Freddu Krueger",
+  "The Joker",
+  "Joffrey Baratheon",
+  "Norman Bates"
+]
+# and then print them 
+puts "The students of Directory Academy"
+puts "____________"
+students.each do |student|
+  puts student
+end
+# finally, we print the total
+puts "Overall, we have #{students.count} great students"
 
-# finally, we print the total number of students
 
-print 'Overall, we have '
-
-# it's important that print() doesn't add new line characters
-
-print 11
-puts ' great students'
 
