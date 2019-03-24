@@ -91,13 +91,25 @@ def save_students
   file.close
 end
 
-def load_students
-  file_to_read = File.open('students.csv', 'r')
+def load_students(filename = 'students.csv')
+  file_to_read = File.open(filename, 'r')
   file_to_read.readlines.each do |line|
     name, cohort = line.chomp.split(',')
     @students << {name: name, cohort: cohort.to_sym}
   end
   file_to_read.close
+end
+
+def try_load_students
+  filename = ARGV.first
+  return if filename.nil?
+  if File.exit?(filename)
+    load_students(filename)
+    puts "Loaded #{@students.count} from #{filename}"
+  else 
+    puts "Sorry, #{filename} doesn't exit."
+    exit
+  end  
 end
 
 #nothing happens until we call the methods
