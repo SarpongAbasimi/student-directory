@@ -44,8 +44,9 @@ def input_students
 end
 
 def print_menu
-  puts "1. Input the students "
-  puts "2. show the students"
+  puts "1. Input the students"
+  puts "2. Show the students"
+  puts "3. Save the list to students.csv"
   puts "9. Exit"
 end
 
@@ -60,7 +61,9 @@ def process(selection)
    when "1" 
      input_students 
    when "2" 
-     show_students 
+     show_students
+   when "3" 
+     save_students
    when "9" 
      exit 
    else 
@@ -74,6 +77,17 @@ def interactive_menu
     process(gets.chomp)
   end
 end
+
+def save_students
+  file = File.new('students.csv','w')
+  @students.each do |student|
+    student_data = [student[:name], student[:cohort]]
+    join_student_info = student_data.join(',')
+    file.puts join_student_info
+  end 
+  file.close
+end
+
 
 #nothing happens until we call the methods
 interactive_menu
